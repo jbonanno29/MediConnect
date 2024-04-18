@@ -43,7 +43,7 @@ CREATE TABLE Clerk (
 );
 
 CREATE TABLE Insurance (
-    PolicyNo INT PRIMARY KEY,
+    PolicyNo INT,
     Company VARCHAR(255),
     Plan VARCHAR(255),
     PatientID INT,
@@ -177,36 +177,36 @@ VALUES
 INSERT INTO Insurance (PolicyNo, PatientID, Company, Plan)
 VALUES
     (12345, 1, 'Cigna', NULL),
-    (54321, 2, NULL, NULL),
+    (NULL, 2, NULL, NULL),
     (67890, 3, 'UnitedHealth Group', NULL),
     (98765, 4, 'Blue Cross Blue Shield', NULL),
-    (11111, 5, NULL, NULL),
+    (NULL, 5, NULL, NULL),
     (22222, 6, 'Aetna', NULL),
-    (33333, 7, NULL, NULL),
+    (NULL, 7, NULL, NULL),
     (44444, 8, 'UnitedHealth Group', NULL),
     (55555, 9, 'Anthem', NULL),
-    (66666, 10, NULL, NULL),
+    (NULL, 10, NULL, NULL),
     (77777, 11, 'Humana', NULL),
-    (88888, 12, NULL, NULL),
+    (NULL, 12, NULL, NULL),
     (99999, 13, 'Aetna', NULL),
-    (11112, 14, NULL, NULL),
+    (NULL, 14, NULL, NULL),
     (22223, 15, 'Blue Cross Blue Shield', NULL),
     (33334, 16, 'Anthem', NULL),
     (44445, 17, 'Humana', NULL),
-    (55556, 18, NULL, NULL),
+    (NULL, 18, NULL, NULL),
     (66667, 19, 'UnitedHealth Group', NULL),
     (77778, 20, 'Blue Cross Blue Shield', NULL),
     (88889, 21, 'Anthem', NULL),
-    (99990, 22, NULL, NULL),
+    (NULL, 22, NULL, NULL),
     (10101, 23, 'Cigna', NULL),
-    (20202, 24, NULL, NULL),
+    (NULL, 24, NULL, NULL),
     (30303, 25, 'Blue Cross Blue Shield', NULL),
     (40404, 26, 'Anthem', NULL),
     (50505, 27, 'Cigna', NULL),
-    (60606, 28, NULL, NULL),
+    (NULL, 28, NULL, NULL),
     (70707, 29, 'UnitedHealth Group', NULL),
     (80808, 30, 'Blue Cross Blue Shield', NULL),
-    (90909, 31, NULL, NULL);
+    (NULL, 31, NULL, NULL);
 
     
 INSERT INTO Treats (DoctorID, PatientID, Treatment, Drug, Dosage, Date, Time)

@@ -15,6 +15,7 @@ CREATE TABLE Patient (
     LName VARCHAR(50) NOT NULL,
     DOB DATE,
     Sex VARCHAR(6),
+    CheckedIn INT Default 0,
     Insurance VARCHAR(100)
 );
 
@@ -70,6 +71,18 @@ CREATE TABLE Cares_For (
     FOREIGN KEY (PatientID) REFERENCES Patient(PID)
 );
 
+CREATE TABLE Appointment (
+    RelationshipID INT PRIMARY KEY AUTO_INCREMENT,
+    DoctorID INT,
+    ClerkID INT,
+    PatientID INT,
+    Date DATE,
+    Time TIME,
+    FOREIGN KEY (DoctorID) REFERENCES Doctor(DocID),
+    FOREIGN KEY (ClerkID) REFERENCES Clerk(CID),
+    FOREIGN KEY (PatientID) REFERENCES Patient(PID)
+);
+
 INSERT INTO Doctor (DocID, FName, LName, Specialty)
 VALUES
     (1, 'Matthew', 'Rodriguez', 'Physician'),
@@ -115,7 +128,7 @@ VALUES
     (30, 'William', 'Lee', '1988-11-12', 'Male', 'Blue Cross Blue Shield'),
     (31, 'Sophia', 'Wong', '1985-02-09', 'Female', NULL);
     
-    INSERT INTO Nurse (Nid, FName, LName)
+INSERT INTO Nurse (Nid, FName, LName)
 VALUES
     (1, 'Emily', 'Smith'),
     (2, 'Michael', 'Johnson'),
@@ -230,7 +243,7 @@ VALUES
     (6, 29, 'ECG', NULL, NULL, '2024-04-30', '14:15:00'),
     (7, 24, 'Skin examination', 'Aspirin', 100.0, '2024-05-01', '16:45:00');
     
-    INSERT INTO Cares_For (NurseID, PatientID)
+INSERT INTO Cares_For (NurseID, PatientID)
 VALUES
     (1, 5),
     (2, 7),
@@ -255,3 +268,20 @@ VALUES
     (1, 7),
     (2, 9),
     (3, 11);
+    
+INSERT INTO Appointment (DoctorID, ClerkID, PatientID, Date, Time)
+VALUES
+    (3, 3, 8, '2024-04-16', '08:00:00'),
+    (7, 1, 1, '2024-04-16', '09:00:00'),
+    (1, 2, 12, '2024-04-16', '10:00:00'),
+    (4, 3, 10, '2024-04-16', '11:00:00'),
+    (2, 1, 7, '2024-04-16', '12:00:00'),
+    (5, 2, 9, '2024-04-16', '13:00:00'),
+    (8, 3, 5, '2024-04-16', '14:00:00'),
+    (6, 1, 3, '2024-04-16', '15:00:00'),
+    (5, 3, 6, '2024-04-17', '08:00:00'),
+    (1, 2, 11, '2024-04-17', '09:00:00'),
+    (3, 1, 13, '2024-04-17', '10:00:00'),
+    (2, 2, 2, '2024-04-17', '11:00:00'),
+    (7, 3, 4, '2024-04-17', '12:00:00'),
+    (4, 1, 14, '2024-04-17', '13:00:00');
